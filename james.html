@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>James Smith TDEE Calculator – Calculate Your Daily Calories</title>
+
+<meta name="description" content="Use the James Smith TDEE Calculator to estimate your daily calorie needs. Learn how it works, how to use it, and plan your fitness goals accurately.">
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  color: #333;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  color: #111;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0073e6, #004a99);
+  color: #fff;
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media(max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Calculator */
+.calculator {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.calculator label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.calculator input,
+.calculator select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.calculator button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  background: #0073e6;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calculator button:hover {
+  background: #005bb5;
+}
+
+.result {
+  margin-top: 15px;
+  background: #eef5ff;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Article */
+.article {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.article ul {
+  padding-left: 20px;
+}
+
+.article a {
+  color: #0073e6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.article a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>James Smith TDEE Calculator</h1>
+    <p>Calculate your daily calorie needs and understand how your body burns energy.</p>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <!-- CALCULATOR -->
+    <div class="calculator">
+      <h2>Calculate Your TDEE</h2>
+
+      <label>Age (years)</label>
+      <input type="number" id="age" min="10" max="120">
+
+      <label>Gender</label>
+      <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label>Weight (kg)</label>
+      <input type="number" id="weight">
+
+      <label>Height (cm)</label>
+      <input type="number" id="height">
+
+      <label>Activity Level</label>
+      <select id="activity">
+        <option value="1.2">Sedentary (Little or no exercise)</option>
+        <option value="1.375">Light (1–3 days/week)</option>
+        <option value="1.55">Moderate (3–5 days/week)</option>
+        <option value="1.725">Active (6–7 days/week)</option>
+        <option value="1.9">Very Active (Hard training)</option>
+      </select>
+
+      <button onclick="calculateTDEE()">Calculate TDEE</button>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <!-- ARTICLE -->
+    <div class="article">
+      <h2>What Is the James Smith TDEE Calculator?</h2>
+      <p>
+        The <strong>James Smith TDEE Calculator</strong> is a simple yet powerful tool that helps you estimate
+        how many calories your body burns in a full day. This value is known as your
+        <strong>Total Daily Energy Expenditure (TDEE)</strong>.
+      </p>
+
+      <p>
+        If your goal is fat loss, muscle gain, or weight maintenance, knowing your TDEE is essential.
+        You can try the official version here:
+        <a href="https://jamessmithcalculators.co.uk/" target="_blank">James Smith Tdee Calculator</a>
+      </p>
+
+      <h3>How Does It Work?</h3>
+      <p>
+        The calculator first estimates your <strong>Basal Metabolic Rate (BMR)</strong>,
+        which is the number of calories your body burns at rest.
+        It then multiplies this number by your activity level to calculate your TDEE.
+      </p>
+
+      <h3>What Is TDEE?</h3>
+      <ul>
+        <li><strong>BMR:</strong> Calories burned at rest</li>
+        <li><strong>Activity Calories:</strong> Movement, workouts, daily tasks</li>
+        <li><strong>TDEE:</strong> Total calories burned per day</li>
+      </ul>
+
+      <h3>How to Use the Calculator</h3>
+      <ol>
+        <li>Enter your age, height, and weight</li>
+        <li>Select your gender</li>
+        <li>Choose your real activity level</li>
+        <li>Click <strong>Calculate TDEE</strong></li>
+      </ol>
+
+      <h3>How to Use Your Result</h3>
+      <ul>
+        <li><strong>Maintain weight:</strong> Eat around your TDEE</li>
+        <li><strong>Lose fat:</strong> Eat fewer calories than TDEE</li>
+        <li><strong>Gain muscle:</strong> Eat more calories than TDEE</li>
+      </ul>
+
+      <p>
+        For best accuracy, recalculate your TDEE whenever your body weight or training routine changes.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    © 2026 James Smith Calculator Guide | Informational Purpose Only
+  </div>
+
+</div>
+
+<script>
+function calculateTDEE() {
+  const age = document.getElementById("age").value;
+  const gender = document.getElementById("gender").value;
+  const weight = document.getElementById("weight").value;
+  const height = document.getElementById("height").value;
+  const activity = document.getElementById("activity").value;
+
+  if (!age || !weight || !height) {
+    document.getElementById("result").innerHTML = "Please fill in all fields.";
+    return;
+  }
+
+  let bmr;
+
+  if (gender === "male") {
+    bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+  } else {
+    bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+  }
+
+  const tdee = Math.round(bmr * activity);
+
+  document.getElementById("result").innerHTML =
+    "Your estimated TDEE is <strong>" + tdee + "</strong> calories per day.";
+}
+</script>
+
+</body>
+</html>
